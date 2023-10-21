@@ -59,7 +59,7 @@ class LoginPage extends StatelessWidget {
                 },
                 decoration: const InputDecoration(
                     suffixIcon: Icon(Icons.phone),
-                    labelText: 'Username',
+                    labelText: 'Phone',
                     hintText: "1xxxxxxxxx",
                     border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
               ),

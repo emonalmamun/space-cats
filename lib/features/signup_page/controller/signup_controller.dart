@@ -57,42 +57,42 @@ class SignupController extends GetxController{
     return file?.path;
   }
 
-  Future<String> uploadImage(pickedImage) async {
-
-    var request = http.MultipartRequest('POST', Uri.parse("${AppBaseUrl.apiBaseUrl}/api/user/signup"));
-    //request.headers.addAll({'Authorization': 'Bearer ' + token});
-    request.fields['name'] = name.toString();
-
-
-    //request.files.add(await http.MultipartFile.fromPath('image', pickedImage));
-    request.files.add(http.MultipartFile.fromBytes('profile_photo', File(pickedImage).readAsBytesSync(),filename: imageName.value));
-    var res = await request.send();
-
-    var response = await http.Response.fromStream(res);
-    final responseData = json.decode(response.body);
-
-    if(res.statusCode == 200){
-      Get.snackbar("Image upload", "Success!");
-      //box.write('image', Constants.apiBaseUrl+"/"+responseData['data']['image']);
-      //box.write('image', pickedImage);
-      //updateImage(Constants.apiBaseUrl+"/"+responseData['data']['image']);
-
-      //print(_userImage.toString());
-      //print(box.read('image'));
-
-    }else{
-      Get.snackbar("Image upload", "Error!");
-      //print("Error");
-      //box.write('image', pickedImage);
-    }
-
-    //print("StatueCode ${res.statusCode}");
-    //print("StatueCode ${res.reasonPhrase.toString()}");
-
-    //print("====================uploadImage Called======================");
-
-    return res.reasonPhrase.toString();
-  }
+  // Future<String> uploadImage(pickedImage) async {
+  //
+  //   var request = http.MultipartRequest('POST', Uri.parse("${AppBaseUrl.apiBaseUrl}/api/user/signup"));
+  //   //request.headers.addAll({'Authorization': 'Bearer ' + token});
+  //   request.fields['name'] = name.toString();
+  //
+  //
+  //   //request.files.add(await http.MultipartFile.fromPath('image', pickedImage));
+  //   request.files.add(http.MultipartFile.fromBytes('profile_photo', File(pickedImage).readAsBytesSync(),filename: imageName.value));
+  //   var res = await request.send();
+  //
+  //   var response = await http.Response.fromStream(res);
+  //   final responseData = json.decode(response.body);
+  //
+  //   if(res.statusCode == 200){
+  //     Get.snackbar("Image upload", "Success!");
+  //     //box.write('image', Constants.apiBaseUrl+"/"+responseData['data']['image']);
+  //     //box.write('image', pickedImage);
+  //     //updateImage(Constants.apiBaseUrl+"/"+responseData['data']['image']);
+  //
+  //     //print(_userImage.toString());
+  //     //print(box.read('image'));
+  //
+  //   }else{
+  //     Get.snackbar("Image upload", "Error!");
+  //     //print("Error");
+  //     //box.write('image', pickedImage);
+  //   }
+  //
+  //   //print("StatueCode ${res.statusCode}");
+  //   //print("StatueCode ${res.reasonPhrase.toString()}");
+  //
+  //   //print("====================uploadImage Called======================");
+  //
+  //   return res.reasonPhrase.toString();
+  // }
 
   void signupBtn()async{
     //isLoading.value = true;
